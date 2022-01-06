@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
+import axios from 'axios';
 
 import Home from './src/screens/Home';
 import ClientDetails from './src/screens/ClientDetails';
@@ -23,8 +24,11 @@ const theme = {
   }
 }
 const App = () => {
+
+
   return (
-    <NavigationContainer>
+    <PaperProvider>
+      <NavigationContainer>
       <Stack.Navigator
         initialRouteName='home'
         screenOptions={{
@@ -63,6 +67,7 @@ const App = () => {
 
       </Stack.Navigator>
     </NavigationContainer>
+    </PaperProvider>
   )
 }
 
