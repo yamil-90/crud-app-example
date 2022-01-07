@@ -1,15 +1,19 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import React, {useState} from 'react'
+import { StyleSheet, Text, View, LogBox } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
-import axios from 'axios';
+
 
 import Home from './src/screens/Home';
 import ClientDetails from './src/screens/ClientDetails';
 import NewClient from './src/screens/NewClient';
-import TopBar from './src/components/TopBar';
+
+
+LogBox.ignoreLogs([
+  'Non-serializable values were found in the navigation state',
+]);
 
 const Stack = createNativeStackNavigator()
 
@@ -24,7 +28,7 @@ const theme = {
   }
 }
 const App = () => {
-
+  
 
   return (
     <PaperProvider>
@@ -42,13 +46,13 @@ const App = () => {
         <Stack.Screen
           component={Home}
           name='home'
-          options={({ navigation, route }) => ({
-            headerLeft: (props) => <TopBar {...props}
-              navigation={navigation}
-              route={route}
-            />
-          })
-          }
+          // options={({ navigation, route }) => ({
+          //   headerLeft: (props) => <TopBar {...props}
+          //     navigation={navigation}
+          //     route={route}
+          //   />
+          //})
+          //}
         />
         <Stack.Screen
           component={ClientDetails}

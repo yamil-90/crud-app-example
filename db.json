@@ -1,74 +1,32 @@
 {
   "clients": [
     {
-      "name": "name",
-      "phone": "666666",
-      "email": "66666",
-      "company": "666666",
+      "name": "pepe",
+      "phone": "999999999",
+      "email": "mail@mail.com",
+      "company": "bus.inc",
       "id": 1
     },
     {
-      "name": "name",
-      "phone": "666666",
-      "email": "66666",
-      "company": "666666",
+      "name": "karen",
+      "phone": "5555555",
+      "email": "flu@gg.com",
+      "company": "manager.sa",
       "id": 2
     },
     {
-      "name": "name",
-      "phone": "666666",
-      "email": "66666",
-      "company": "666666",
+      "name": "superman",
+      "phone": "33333333",
+      "email": "main@planet.com",
+      "company": "planet",
       "id": 3
     },
     {
-      "name": "name",
-      "phone": "666666",
-      "email": "66666",
-      "company": "666666",
+      "name": "robert smith",
+      "phone": "69420",
+      "email": "blzit@dude.lsf",
+      "company": "blazeI industries",
       "id": 4
-    },
-    {
-      "name": "name",
-      "phone": "666666",
-      "email": "66666",
-      "company": "666666",
-      "id": 5
-    },
-    {
-      "name": "nombre",
-      "phone": "tel",
-      "email": "mail",
-      "company": "apple",
-      "id": 6
-    },
-    {
-      "name": "nombre",
-      "phone": "tel",
-      "email": "mail",
-      "company": "apple",
-      "id": 7
-    },
-    {
-      "name": "ddd",
-      "phone": "ddd",
-      "email": "ddd",
-      "company": "dd",
-      "id": 8
-    },
-    {
-      "name": "ddd",
-      "phone": "ddd",
-      "email": "ddd",
-      "company": "dd",
-      "id": 9
-    },
-    {
-      "name": "text",
-      "phone": "phone",
-      "email": "mail",
-      "company": "comp",
-      "id": 10
     }
   ]
 }

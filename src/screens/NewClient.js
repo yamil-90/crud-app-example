@@ -6,7 +6,9 @@ import { TextInput, Headline, Button, Paragraph, Dialog, Portal } from 'react-na
 
 import globalStyles from '../styles/global'
 
-const NewClient = ({navigation}) => {
+const NewClient = ({ navigation, route }) => {
+
+    const { setReloadClients, client } = route.params
 
     const [name, setName] = useState('')
     const [phone, setPhone] = useState('')
@@ -14,6 +16,17 @@ const NewClient = ({navigation}) => {
     const [company, setCompany] = useState('')
 
     const [alert, setAlert] = useState(false)
+
+    // check if we are editing
+    useEffect(() => {
+        if (client) {
+            const { name, phone, email, company } = client
+            setName(name);
+            setPhone(phone)
+            setEmail(email)
+            setCompany(company)
+        }
+    }, [])
 
     const saveClient = async () => {
         // validation
@@ -27,17 +40,28 @@ const NewClient = ({navigation}) => {
         if (Platform.OS === 'ios') {
             // for ios
             url = 'http://localhost:3000/clients'
-        } else if (Platform.OS === 'android'){
+        } else if (Platform.OS === 'android') {
             // for android
             url = 'http://10.0.2.2:3000/clients'
         }
-        const client = { name, phone, email, company }
+        const clientData = { name, phone, email, company }
         // console.log(client);
-        try {
-            await axios.post(url, client);
-            console.log('saving');
-        } catch (err) {
-            console.log('error is', err);
+        if (client) {
+            const { id } = client
+            clientData.id = id;
+            try {
+                await axios.put(url + `/${id}`, clientData)
+            } catch (err) {
+                console.log('error editing is', err);
+            }
+        } else {
+
+            try {
+                await axios.post(url, clientData);
+                console.log('saving');
+            } catch (err) {
+                console.log('error is', err);
+            }
         }
         // clean form
         setName('')
@@ -45,6 +69,7 @@ const NewClient = ({navigation}) => {
         setEmail('')
         setCompany('')
         // redirect
+        setReloadClients(true)
         navigation.navigate('home')
     }
 
@@ -53,7 +78,7 @@ const NewClient = ({navigation}) => {
     // },[name])
     return (
         <View style={globalStyles.container}>
-            <Headline style={globalStyles.title}>Add new client</Headline>
+            <Headline style={globalStyles.title}>{client ? 'Edit Client' : 'Add new client'}</Headline>
             <TextInput
                 style={styles.input}
                 label='Name'
@@ -81,7 +106,7 @@ const NewClient = ({navigation}) => {
             <Button icon='pencil-circle'
                 mode='contained'
                 onPress={saveClient}>
-                Create Client
+                {client ? 'Save changes' : 'Create new client'}
             </Button>
             <Portal>
                 <Dialog
