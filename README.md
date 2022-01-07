@@ -4,8 +4,9 @@ the appearance was manged using the React native Paper framework with react nati
 
 # Screenshots
 
-pending
-
+![screenshot1](https://github.com/yamil-90/crud-app-example/blob/main/assets/screenshots/Screenshot_1641530846.png?raw=true)
+![screenshot2](https://github.com/yamil-90/crud-app-example/blob/main/assets/screenshots/Screenshot_1641530884.png?raw=true)
+![screenshot3](https://github.com/yamil-90/crud-app-example/blob/main/assets/screenshots/Screenshot_1641530914.png?raw=true)
 # Technologies 
 
 |Technology|version|
